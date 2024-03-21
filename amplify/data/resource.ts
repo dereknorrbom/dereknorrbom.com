@@ -8,11 +8,46 @@ specify that owners, authenticated via your Auth resource can "create",
 authenticated via an API key, can only "read" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
+  Project: a
     .model({
-      content: a.string(), 
+      title: a.string().required(),
+      description: a.string().required(),
+      technologies: a.string().array(),
+      githubUrl: a.string(),
+      liveUrl: a.string(),
+      images: a.string().array(),
+      featured: a.boolean().required(),
     })
-    .authorization([a.allow.owner(), a.allow.public().to(['read'])]),
+    .authorization([a.allow.owner(),a.allow.public().to(['read'])]),
+
+  Experience: a
+    .model({
+      company: a.string().required(),
+      position: a.string().required(),
+      startDate: a.date().required(),
+      endDate: a.date(),
+      description: a.string().required(),
+      achievements: a.string().array(),
+      skills: a.hasMany('Skill'),
+    })
+    .authorization([a.allow.owner(),a.allow.public().to(['read'])]),
+
+  Skill: a
+    .model({
+      name: a.string().required(),
+      experience: a.belongsTo('Experience'),
+    })
+    .authorization([a.allow.owner(),a.allow.public().to(['read'])]),
+
+  Certification: a
+    .model({
+      name: a.string().required(),
+      issuer: a.string().required(),
+      issueDate: a.date().required(),
+      credentialUrl: a.string(),
+    })
+    .authorization([a.allow.owner(),a.allow.public().to(['read'])]),
+
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -20,8 +55,8 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: 'apiKey',
     // API Key is used for a.allow.public() rules
+    defaultAuthorizationMode: 'apiKey',
     apiKeyAuthorizationMode: {
       expiresInDays: 365,
     },
