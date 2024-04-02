@@ -8,7 +8,6 @@ export const auth = defineAuth({
   loginWith: {
     email: {
       verificationEmailSubject: 'Welcome! Verify your email!',
-      verificationEmailStyle: "LINK",
-      verificationEmailBody: (link: string) => `Your verification link is ${link}.`},
+    },
   },
 });
