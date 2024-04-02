@@ -1,77 +1,87 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 6rem 1rem; /* Reduced horizontal padding for responsiveness */
   min-height: 100vh;
 }
 
-.description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
-}
-
-.description a {
+.hero {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  width: 100%;
 }
 
-.description p {
+.profileImageContainer {
+  max-width: 25vw;
+  width: 100%;
+  height: auto;
   position: relative;
-  margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
+  margin-bottom: 1rem; /* Add some space below the image */
 }
 
-.code {
-  font-weight: 700;
-  font-family: var(--font-mono);
+.profilePic {
+  border-radius: 50%;
+}
+
+/* Ensure the title and introduction are centered and have padding on smaller screens */
+.title,
+.introduction {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.projects {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-top: 2rem; /* Add space above the projects section */
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: 100%;
-  width: var(--max-width);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .card {
-  padding: 1rem 1.2rem;
+  flex-basis: calc(50% - 20px); /* Adjust card size and spacing */
+  text-align: left;
+  padding: 1rem;
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
 }
 
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
+.contact {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-top: 2rem; /* Add space above the contact section */
 }
 
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .profileImageContainer {
+    max-width: 50vw;
+    width: 100%;
+    height: auto;
+  }
+
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex-basis: 100%; /* Full width cards on smaller screens */
+  }
 }
 
-.card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 30ch;
-  text-wrap: balance;
-}
+/* Add more media queries as needed for different breakpoints */
 
 .center {
   display: flex;

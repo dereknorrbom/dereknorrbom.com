@@ -4,92 +4,45 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <section className={`${styles.hero} ${styles.flexContainer}`}>
+        <div className={styles.profileImageContainer}>
+          <Image
+            src="/Frendan_Braser.jpg" // Replace with your profile image path
+            alt="Profile Picture"
+            width={480} // These sizes are now used to maintain aspect ratio
+            height={480}
+            className={styles.profilePic}
+            priority
+          />
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+        <div>
+          <h1 className={styles.title}>Hello, I&apos;m [Your Name]</h1>
+          <p className={styles.introduction}>
+            I&apos;m a [Your Job Title] specializing in [Your Specialization]. Welcome to my personal portfolio.
           </p>
-        </a>
-      </div>
+        </div>
+      </section>
+
+      <section className={`${styles.projects} ${styles.flexContainer}`}>
+        <h2>Projects</h2>
+        <div className={styles.grid}>
+          {/* Example Project */}
+          <a href="[Project Link]" className={styles.card} target="_blank" rel="noopener noreferrer">
+            <h3>Project Name &rarr;</h3>
+            <p>Description of the project and the technologies used.</p>
+          </a>
+          {/* Repeat for other projects */}
+        </div>
+      </section>
+
+      <section className={`${styles.contact} ${styles.flexContainer}`}>
+        <h2>Contact Me</h2>
+        <div>
+          <p>Feel free to reach out for collaborations or just a chat.</p>
+          <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+          {/* Add more contact options if necessary */}
+        </div>
+      </section>
     </main>
   );
 }
