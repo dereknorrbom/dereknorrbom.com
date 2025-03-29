@@ -1,1 +1,0 @@
-# dereknorrbom.com
